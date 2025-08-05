@@ -1,5 +1,7 @@
 # Regularized Linear Regression: US County-Level Sociodemographic and Health Resource Data (2018-2019)
 
+[![Codespace Prebuild](https://github.com/4GeeksAcademy/gperdrizet-regularized-linear-regression/actions/workflows/codespaces/create_codespaces_prebuilds/badge.svg)](https://github.com/4GeeksAcademy/gperdrizet-regularized-linear-regression/actions/workflows/codespaces/create_codespaces_prebuilds)
+
 This repository contains a data science bootcamp assignment focused on regularized linear regression using real-world US county-level data. Students will learn to:
 
 - Apply regularization techniques (Lasso regression) to linear models
