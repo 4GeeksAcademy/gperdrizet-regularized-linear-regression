@@ -4,15 +4,16 @@
 
 This repository contains a data science bootcamp assignment focused on regularized linear regression using real-world US county-level data. Students will learn to:
 
-- Apply regularization techniques (Lasso regression) to linear models
-- Perform feature selection using Recursive Feature Elimination (RFE)
+- Apply regularization techniques (Lasso and Ridge regression) to linear models
+- Perform manual feature selection and engineering
+- Create polynomial interaction features to intentionally induce overfitting
 - Handle mixed data types (categorical and numerical features)
-- Evaluate model performance and prevent overfitting
+- Evaluate model performance and prevent overfitting using regularization
 - Compare baseline, linear, and regularized model performance
 
 ## Dataset
 
-The assignment uses US county-level sociodemographic and health resource data from 2018-2019. The target variable is `anycondition_number` - the number of people with any health condition in each county. Features include demographic information, economic indicators, and healthcare resource availability.
+The assignment uses US county-level sociodemographic and health resource data from 2018-2019. The target variable is `morbidity` - the calculated rate of any health condition per 100 people in each county (derived from `anycondition_number` and `TOT_POP`). Features include demographic information (age, ethnicity), economic indicators (employment, income, education), and healthcare resource availability.
 
 ## Repository Structure
 
@@ -69,42 +70,33 @@ To complete this assignment, you can choose between two options: using GitHub Co
 The `mvp.ipynb` notebook guides you through:
 
 1. **Data Loading & Inspection** - Load and explore the county-level dataset
-2. **Exploratory Data Analysis (EDA)** - Analyze target variable and feature distributions
-3. **Feature Selection** - Use RFE to identify most relevant features
-4. **Linear Model Training** - Build baseline linear regression model
-5. **Model Regularization** - Apply Lasso regression with different penalty values
-6. **Hyperparameter Optimization** - Find optimal regularization strength
-7. **Final Evaluation** - Compare all models and analyze results
+2. **Initial Feature Selection** - Manually select relevant features from different categories (age, ethnicity, population, education, employment, healthcare)
+3. **Exploratory Data Analysis (EDA)** - Analyze target variable and feature distributions, examine feature-label correlations
+4. **Data Preparation** - Train-test split, categorical encoding, and polynomial feature generation
+5. **Linear Model Training** - Build baseline and linear regression models
+6. **Model Regularization** - Apply both Lasso and Ridge regression with different penalty values
+7. **Hyperparameter Optimization** - Find optimal regularization strength using penalty sweeps
+8. **Final Evaluation** - Compare all models and analyze results with residual plots
 
 ### Key Concepts Covered
 
-- **Overfitting vs. Underfitting**: Understanding the bias-variance tradeoff
-- **Regularization**: L1 penalty (Lasso) for feature selection and overfitting prevention
-- **Cross-validation**: Proper model evaluation techniques
-- **Feature Engineering**: Handling categorical variables and feature scaling
+- **Overfitting vs. Underfitting**: Understanding the bias-variance tradeoff through polynomial features
+- **Regularization**: Both L1 penalty (Lasso) and L2 penalty (Ridge) for overfitting prevention
+- **Feature Engineering**: Manual feature selection, polynomial interaction features, and categorical encoding
+- **Model Evaluation**: RMSE, R-squared metrics, and residual analysis
 
 ## Working on the Assignment
 
-- Complete the sections marked with `# Your code here...`
+- Complete the sections marked with code comments like `# Investigate the distribution...`, `# Take a look at the descriptive statistics...`, etc.
 - Run cells sequentially to maintain proper data flow
-- Experiment with different hyperparameters
-- Document your observations and findings
-
-## Troubleshooting
-
-### Common Issues
-
-1. **Import Errors**: Ensure all packages from `requirements.txt` are installed
-2. **Kernel Issues**: Restart the kernel if variables seem undefined
-3. **Memory Issues**: The dataset is manageable, but restart kernel if needed
-
-### Getting Help
-
-- Review the instructor solution in `notebooks/solution.ipynb` if you're stuck
-- Check the scikit-learn documentation for specific functions
+- Experiment with different regularization penalties
+- Analyze the overfitting behavior in the linear model and how regularization addresses it
+- Document your observations about the penalty optimization plots
 
 ## Additional Resources
 
 - [Scikit-learn Linear Models](https://scikit-learn.org/stable/modules/linear_model.html)
 - [Understanding Regularization](https://scikit-learn.org/stable/modules/linear_model.html#regularization)
-- [Cross-validation Guide](https://scikit-learn.org/stable/modules/cross_validation.html)
+- [Polynomial Features Documentation](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.PolynomialFeatures.html)
+- [Lasso Regression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Lasso.html)
+- [Ridge Regression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html)
